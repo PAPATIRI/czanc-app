@@ -1,7 +1,7 @@
 import { router } from "expo-router";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, H1, Input, Label, styled, YStack } from "tamagui";
+import { Button, H1, Input, Label, styled, Text, YStack } from "tamagui";
 
 const SafeArea = styled(SafeAreaView, {
   flex: 1,
@@ -18,35 +18,54 @@ export default function LoginPage() {
 
   return (
     <SafeArea>
-      <YStack bg={"$background"} flex={1} px={20} justify={"center"}>
-        <H1 textTransform="capitalize" color={"$black1"} mb={"$4"}>
-          login
-        </H1>
-        <YStack gap={20} py={10}>
-          <YStack>
-            <Label htmlFor="email">email</Label>
-            <Input
-              id="email"
-              placeholder="sample@email.com"
-              value={email}
-              bg={"$background"}
-              onChangeText={(emailValue) => setEmail(emailValue)}
-            />
-          </YStack>
-          <YStack>
-            <Label htmlFor="password">password</Label>
-            <Input
-              id="password"
-              placeholder="******"
-              inputMode="text"
-              value={password}
-              bg={"$background"}
-              onChangeText={(passwordValue) => setPassword(passwordValue)}
-            />
-          </YStack>
-          <Button mt={40} bg={"$accent1"} onPress={onSubmit} color={"$white1"}>
+      <YStack bg={"$primaryLight"} flex={1} justify={"center"}>
+        <YStack
+          bg={"$backgroundLight"}
+          flex={1}
+          mt={100}
+          pt={50}
+          borderTopEndRadius={45}
+          borderTopStartRadius={45}
+        >
+          <H1
+            textTransform="capitalize"
+            px={24}
+            color={"$textPrimary"}
+            mb={"$4"}
+          >
             login
-          </Button>
+          </H1>
+          <YStack gap={20} py={10} px={24}>
+            <YStack>
+              <Label htmlFor="email">email</Label>
+              <Input
+                id="email"
+                placeholder="sample@email.com"
+                value={email}
+                bg={"$backgroundLight"}
+                onChangeText={(emailValue) => setEmail(emailValue)}
+              />
+            </YStack>
+            <YStack>
+              <Label htmlFor="password">password</Label>
+              <Input
+                id="password"
+                placeholder="******"
+                inputMode="text"
+                value={password}
+                bg={"$backgroundLight"}
+                onChangeText={(passwordValue) => setPassword(passwordValue)}
+              />
+            </YStack>
+            <Button
+              mt={40}
+              bg={"$primaryDefault"}
+              onPress={onSubmit}
+              color={"$textInverse"}
+            >
+              login
+            </Button>
+          </YStack>
         </YStack>
       </YStack>
     </SafeArea>

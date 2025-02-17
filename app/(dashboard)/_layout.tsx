@@ -1,19 +1,22 @@
 import { Colors } from "@/constants/Colors";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
+import { getVariable, useTheme } from "tamagui";
 
 export default function DashboardLayout() {
+  const theme = useTheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.dark.background,
-        tabBarInactiveTintColor: Colors.dark.icon,
+        tabBarActiveTintColor: getVariable(theme.customGreen8),
+        tabBarInactiveTintColor: getVariable(theme.neutral6),
         tabBarItemStyle: {
           marginHorizontal: 40,
           marginVertical: 10,
         },
         tabBarStyle: {
-          backgroundColor: Colors.light.background,
+          backgroundColor: getVariable(theme.backgroundDefault),
           height: 72,
           bottom: 20,
           overflow: "hidden",
